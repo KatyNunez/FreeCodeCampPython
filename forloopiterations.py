@@ -4,6 +4,13 @@ for thing in [1,2,3,4,5,6,7,8,9]:
     print(thing)
 print('after')
 """""""""""
+
+def encuentraNumero(array,numeroAbuscar):
+    numeroEncontrado = None
+    #Implementar logica para usando for, saber si mi numero se encuentra en el array
+
+    return numeroEncontrado
+
 #find the largest/ smaller number 
 
 print('before')
@@ -22,5 +29,12 @@ print('The largest number is : ',High_Num)
 print('The lower number is   : ',Low_Num) 
 
 print('after')
+
+print("----------------------------")
+print("Verifica si el numero esta dentro del array:")
+print(encuentraNumero([10,8,56,8,7,9],56))
+
+
+
 
 
