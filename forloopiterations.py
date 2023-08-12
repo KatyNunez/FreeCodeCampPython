@@ -8,13 +8,16 @@ print('after')
 def saberSiEsPrimo(num):
 
     resultado = None 
-
-    elNumEsPrimo = "El numero "+num+" es primo"
-    elNumNoEsPrimo = "El numero "+num+" NO es primo" 
+    cont=0
+    for i in range(1,num+1):
+        if num % i==0:
+            cont=cont+1
+    if cont==2:
+     resultado=elNumEsPrimo = "El numero ",num," es primo"
+    else:
+     resultado=elNumNoEsPrimo = "El numero",num," NO es primo" 
 
     #Implementar logica para usando for, saber si mi numero se encuentra en el array
-
-    
 
     return resultado
 
@@ -32,7 +35,7 @@ def encuentraNumero(array,numeroAbuscar):
 
 print("----------------------------")
 print("Verifica si es primo")
-print(saberSiEsPrimo(7))
+print(saberSiEsPrimo(4))
 
 print("----------------------------")
 print("Verifica si el numero esta dentro del array:")
