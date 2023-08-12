@@ -8,11 +8,23 @@ print('after')
 def encuentraNumero(array,numeroAbuscar):
     numeroEncontrado = None
     #Implementar logica para usando for, saber si mi numero se encuentra en el array
-
+    for a in array:
+        if numeroAbuscar==a:
+            numeroEncontrado=True
+    
     return numeroEncontrado
+        
+
+
+
+print("----------------------------")
+print("Verifica si el numero esta dentro del array:")
+print(encuentraNumero([10,8,56,8,7,9],15))
+
 
 #find the largest/ smaller number 
 
+"""""""""
 print('before')
 High_Num=None
 Low_Num=None
@@ -30,9 +42,7 @@ print('The lower number is   : ',Low_Num)
 
 print('after')
 
-print("----------------------------")
-print("Verifica si el numero esta dentro del array:")
-print(encuentraNumero([10,8,56,8,7,9],56))
+"""""
 
 
 
