@@ -36,14 +36,31 @@ print("the letter",letter," appeared ",count," in the word",word)
 
 #Check if the setence is a palindromo. 
 #Ej: Anita lava la tina ---> al reves es anita lava la tina
-setence=input("enter de sentence:")
-
-def CheckSetence(setence):
+#anita
+def CheckSentence(sentence):
     EsPalindromo=None
+    Pal=""
+    PalInv=""
+    for i in range (len(sentence)):
+     if sentence[i].isspace() == False  :
+        Pal+=sentence[i] 
 
+    print(Pal)
+
+    for x in range(len(sentence)-1,-1,-1):
+       if sentence[x].isspace() == False  :
+        PalInv+=sentence[x]
+    print(PalInv)
+    if  Pal==PalInv:
+      EsPalindromo=True  
+    
+      
+   
+     
     return EsPalindromo
 
+sentence = str(input("Sentence :"))
 
-print("La oración es un palindromo: "+CheckSetence(setence))
+print("La oración es un palindromo: ",CheckSentence(sentence))
 
 
