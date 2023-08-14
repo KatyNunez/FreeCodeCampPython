@@ -22,6 +22,8 @@ while(i<len(word)):
     i+=1
 """
 #search letter coincidence in a word
+""""
+
 count=0
 word=input("enter word:")
 letter=input("letter to search in the word: ")
@@ -29,3 +31,19 @@ for i in range(len(word)):
     if word[i]==letter:
         count+=1
 print("the letter",letter," appeared ",count," in the word",word)
+
+"""""
+
+#Check if the setence is a palindromo. 
+#Ej: Anita lava la tina ---> al reves es anita lava la tina
+setence=input("enter de sentence:")
+
+def CheckSetence(setence):
+    EsPalindromo=None
+
+    return EsPalindromo
+
+
+print("La oración es un palindromo: "+CheckSetence(setence))
+
+
