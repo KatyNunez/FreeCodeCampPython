@@ -41,6 +41,8 @@ def CheckSentence(sentence):
     EsPalindromo=None
     Pal=""
     PalInv=""
+    sentenceIn=""
+   
     for i in range (len(sentence)):
      if sentence[i].isspace() == False  :
         Pal+=sentence[i] 
@@ -51,8 +53,12 @@ def CheckSentence(sentence):
        if sentence[x].isspace() == False  :
         PalInv+=sentence[x]
     print(PalInv)
+
+
+
+ 
     if  Pal==PalInv:
-      EsPalindromo=True  
+     EsPalindromo=True  
     
       
    
