@@ -41,9 +41,12 @@ def DESENCRIPTAR(textoEncriptado,clave_prueba, clave,TextoOriginal):
     for i in range (len(textoEncriptado)-1,-1,-1): #Change the order of the string,; back to normal 
       textoDesencritpado+=(textoEncriptado[i].strip())
 
-    if clave_prueba==clave:
+    for x in textoDesencritpado:
+     if clave_prueba==clave:
         if '!11' in textoDesencritpado:
              textoDesencritpado=textoDesencritpado.replace('!11','a')
+     
+   
         if '@22' in textoDesencritpado:
               textoDesencritpado=textoDesencritpado.replace('@22','e')
 
@@ -55,9 +58,11 @@ def DESENCRIPTAR(textoEncriptado,clave_prueba, clave,TextoOriginal):
 
         if '%55' in textoDesencritpado:
              textoDesencritpado=textoDesencritpado.replace('%55','u')
-    else:
-       print("wrong password, Run the program again") 
-       quit() #it stops the program from running
+     elif clave_prueba!=clave:
+       print("wrong password, enter new password")
+       clave_prueba=input("enter new password : ") 
+       #quit() #it stops the program from running
+
        
       
     if textoDesencritpado!=TextoOriginal:
