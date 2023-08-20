@@ -11,76 +11,84 @@ ejemplo: texto: "Hola shaiza" ---> "x4w4 x14gg" ---> clave "12345"
 para desecriptarlo seria: textoEncriptado: "x4w4 x14gg" ----> clave "12345" ---> resultado "Hola shaiza"
 
 """""
+import os
+#clean screen
+def clear():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
 
 
 def ENCRIPTAR(texto, clave):
-    textoEncriptado= ""
-    if 'a' in texto:
-        texto=texto.replace('a','!11')
-    if 'e' in texto:
-        texto=texto.replace('e','@22')
+# Variables 
+    textoascii=[]
+    claveascii=[]
+    sumclave=0
+    claveop=0
+    txtenc=[]
 
-    if 'i' in texto:
-        texto=texto.replace('i','#33')
-    if 'o' in texto:
-        texto=texto.replace('o','$44')
+# Process 
+    textosp=""
+    for i in texto:
+     textoascii.append(ord(i)) # converted text to ascii code
 
-    if 'u' in texto:
-        texto=texto.replace('u','%55')
-
-    for i in range (len(texto)-1,-1,-1): # change the order of the string
-        textoEncriptado+=(texto[i].strip())
-
-        
-    return textoEncriptado
-
-
-def DESENCRIPTAR(textoEncriptado,clave_prueba, clave,TextoOriginal):
-    textoDesencritpado= ""
-    
-    for i in range (len(textoEncriptado)-1,-1,-1): #Change the order of the string,; back to normal 
-      textoDesencritpado+=(textoEncriptado[i].strip())
-
-    for x in textoDesencritpado:
-     if clave_prueba==clave:
-        if '!11' in textoDesencritpado:
-             textoDesencritpado=textoDesencritpado.replace('!11','a')
+    for x in clave:
+     claveascii.append(ord(x)) # converted clace to ascii code
      
-   
-        if '@22' in textoDesencritpado:
-              textoDesencritpado=textoDesencritpado.replace('@22','e')
+    for m in claveascii:
+       sumclave+=m            # sum of the ascci clave
+    
+    for k in textoascii:
+      claveop=k+sumclave     # sum each text-code-ascii with the sum of clave
+      txtenc.append(chr(claveop)) # save the encrypted text
+      cleartxt = ''.join(txtenc)
 
-        if '#33' in textoDesencritpado:
-              textoDesencritpado=textoDesencritpado.replace('#33','i')
-
-        if '$44' in textoDesencritpado:
-              textoDesencritpado=textoDesencritpado.replace('$44','o')
-
-        if '%55' in textoDesencritpado:
-             textoDesencritpado=textoDesencritpado.replace('%55','u')
-     elif clave_prueba!=clave:
-       print("wrong password, enter new password")
-       clave_prueba=input("enter new password : ") 
-       #quit() #it stops the program from running
-
+# Output    
+    return cleartxt
+  
        
-      
-    if textoDesencritpado!=TextoOriginal:
-        textoDesencritpado= ''.join(TextoOriginal) # join the differences between both string in this case the spaces
+
+def DESENCRIPTAR(textoEncriptado, clave):
+
+#declaration
+    suma=0
+    resta=0
+    clavede=0
+    txtdec=0
+    txtencascii=[]
+    resultados = []
+# process
+    for x in clave:
+     clavede=ord(x)
+     suma+=clavede
     
+    for t in textoEncriptado:
+       txtencascii.append(ord(t)) # arreglo para convertir a ascii
     
-    return textoDesencritpado
+#descencriptado
+    for x in txtencascii:
+     resta = x - suma
+     resultados.append(chr(resta))
+ 
+    cleartext = ''.join(resultados)
+  
+    return cleartext    
+
+ 
 
 
 #ENCRIPTAR
+
 texto=input("texto : ")
 clave=input("Clave : ")
-TextoOriginal=texto
+clear()
 print("Texto encriptado: ",ENCRIPTAR(texto, clave))
 
-#DESENCRYPTAR
-textoEncriptado=input("texto : ")
-clave_prueba=input("Clave : ")
+#DESENCRYPTAR"
+textoEncriptado=input("Texto encriptado : ")
 
-print("Texto desencriptado: ",DESENCRIPTAR(textoEncriptado,clave_prueba,clave,TextoOriginal))
+clave_prueba=input("Clave : ")
+print("Texto desencriptado: ",DESENCRIPTAR(textoEncriptado,clave_prueba,))
 

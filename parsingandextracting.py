@@ -1,3 +1,3 @@
 email='knunezpena@pccc.edu'
-position=email.fin d('@')
+position=email.find('@')
 print( email[position:])
